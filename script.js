@@ -1,43 +1,113 @@
-/* Assignment 04: Finishing a Todo List App
- *
- * 
- *
- */
+/* Assignment 04: Finishing a Todo List App */
+
+// Backend of the code
+
+todoItems = [];
 
 
-//
-// Variables
-//
+function addToDoItem(text) {
 
-// Constants
-const appID = "app";
-const headingText = "To do. To done. ✅";
-
-// DOM Elements
-let appContainer = document.getElementById(appID);
-
-//
-// Functions
-//
-
-// Add a heading to the app container
-function inititialise() {
-  // If anything is wrong with the app container then end
-  if (!appContainer) {
-    console.error("Error: Could not find app contianer");
-    return;
+  if (typeof text !== 'string') {
+    console.error('Error: ' + text + ' is not a string. Text entered must be a String.');
+    return; 
   }
 
-  // Create an h1 and add it to our app
-  const h1 = document.createElement("h1");
-  h1.innerText = headingText;
-  appContainer.appendChild(h1);
+  const newTodo = {
+    id: todoItems.length,
+    text: text,
+    completed: false,
+  };
 
-  // Init complete
-  console.log("App successfully initialised");
+  return todoItems.push(newTodo);
 }
 
-//
-// Inits & Event Listeners
-//
-inititialise();
+function removeToDoItem(todoId) {
+  todoItems = todoItems.filter((todo) => todo.id !== todoId);
+}
+
+function markToDoItemAsCompleted(todoId) {
+  const todoIndex = todoItems.findIndex((todo) => todo.id === todoId);
+  if (todoIndex !== -1) {
+    todoItems[todoIndex].completed = true;
+  }
+}
+
+function markToDoItemAsIncomplete(todoId) {
+    const todoIndex = todoItems.findIndex((todo) => todo.id === todoId);
+    if (todoIndex !== -1) {
+      todoItems[todoIndex].completed = false;
+    }
+  }
+
+
+function deleteToDoItem(todoId) {
+  todoItems = todoItems.filter((todo) => todo.id !== todoId);
+}
+
+function clearCompletedTasks() {
+  todoItems = todoItems.filter((todo) => !todo.completed);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('form-task');
+    const taskInput = document.getElementById('name-input');
+    const taskList = document.getElementById('task-items');
+    const taskCount = document.getElementById('task-count');
+  
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const taskText = taskInput.value.trim();
+  
+      if (taskText !== '') {
+        addToDoItem(taskText);
+        displayTasks();
+        taskInput.value = '';
+      }
+    });
+  
+function displayTasks() {
+    taskList.innerHTML = '';
+    
+    todoItems.forEach(function (todo) {
+        const li = document.createElement('li');
+        li.textContent = todo.text;
+  
+        const completeButton = document.createElement('button');
+
+        completeButton.textContent = todo.completed ? 'Mark as Incomplete' : 'Mark as Completed';
+
+        completeButton.addEventListener('click', function () {
+            if (todo.completed) {
+                markToDoItemAsIncomplete(todo.id);
+              } else {
+                markToDoItemAsCompleted(todo.id);
+              }
+          displayTasks();
+        });
+  
+        const deleteButton = document.createElement('button');
+
+        deleteButton.textContent = 'Delete';
+        
+        deleteButton.addEventListener('click', function () {
+          deleteToDoItem(todo.id);
+          displayTasks();
+        });
+  
+        li.appendChild(completeButton);
+        li.appendChild(deleteButton);
+  
+        taskList.appendChild(li);
+      });
+  
+      updateTaskCount();
+    }
+  
+    function updateTaskCount() {
+      const incompleteTasks = todoItems.filter((todo) => !todo.completed).length;
+      taskCount.textContent = `Tasks remaining: ${incompleteTasks}`;
+    }
+  
+    displayTasks();
+  });
+  

@@ -40,12 +40,45 @@
 
   -->
 
-  <main>
-    <div id="app"></div>
+<!-- Create a form with a submit button. 
+  Make a list that will display each item as they are added.
+  The added elements must have buttons to mark them done and then delete them. 
+-->
+
+<main>
+  <section class="complete-form">
+  
+    <h2>To-Do List App</h2>
+  
+    <form id="form-task">
+  
+      <label for="name-input">Enter task:</label>
+      <input
+      placeholder="Enter tasks here"
+        type="text"
+        id="name-input"
+        name="name-input"
+        required />
+  
+      <button class="btn-primary" type="submit">Add Task</button>
+    </form>
+  
+    <section>
+  
+      <h1>Tasks added in our app:</h1>
+  
+      <ul class="form-results" id="task-items"></ul>
+  
+      <p id="task-count"></p>
+  
+    </section>
+  
+  </section>
   </main>
-
-  <!-- Add JavaScript File -->
-  <script src="./script.js"></script>
-
-</body>
-</html>
+  
+    <!-- Add JavaScript File -->
+    <script src="./script.js"></script>
+  
+  </body>
+  </html>
+  
