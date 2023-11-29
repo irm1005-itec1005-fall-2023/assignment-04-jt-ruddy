@@ -1,12 +1,4 @@
-/*
- * CSS File for the solution
- * Assignment 03
- * You can modify these styles but you don't have to
- */
 
-/*
- VARIABLES
-*/
 :root {
   /* Core colours */
   /* https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557 */
@@ -39,7 +31,80 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center; 
+
 }
+
+header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: red;
+  border-bottom: solid;
+}
+
+footer{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.complete-form{
+  border: solid;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+  padding: 1rem;
+}
+
+
+/*TEXT ELEMENTS*/
+h1{
+  font-size: 2rem;
+margin: 2rem;
+text-decoration: underline;
+}
+
+h2{
+font-size: 5.5rem;
+}
+
+h3{
+font-size: 0.9rem;
+}
+
+p{
+margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li span {
+  margin-right: 50px;
+}
+
+/*BUTTONS & BOXES*/
+input[type="checkbox"] {
+  transform: scale(1.5);
+  margin-right: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /****** Screen reader text utility clsas *******/

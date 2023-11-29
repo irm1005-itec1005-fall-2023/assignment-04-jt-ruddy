@@ -29,15 +29,17 @@
   The added elements must have buttons to mark them done and then delete them. 
 -->
 
+<header>
+  <h2>To-Do List</h2>
+</header>
+
 
 <main>
 <section class="complete-form">
 
-  <h2>To-Do List App</h2>
+ <p>This is pretty basic List app with the basic fuctionalities of such apps, namely; adding task, making them complete and deleting them. I hope expectation are met and that you are satified with this user friendly app.</p>
 
   <form id="form-task">
-
-    <label for="name-input">Enter task:</label>
     <input
     placeholder="Enter tasks here"
       type="text"
@@ -50,11 +52,13 @@
 
   <section>
 
-    <h1>Tasks added in our app:</h1>
+    <h1>Tasks list</h1>
 
     <ul class="form-results" id="task-items"></ul>
 
     <p id="task-count"></p>
+
+    <button id="clear-all">Clear All Tasks</button>
 
     <button id="clear-completed">Clear Completed</button>
 
@@ -62,6 +66,10 @@
 
 </section>
 </main>
+
+<footer>
+  <h3>By J. T. Ruddy</h3>
+</footer>
 
   <!-- Add JavaScript File -->
   <script src="./script.js"></script>

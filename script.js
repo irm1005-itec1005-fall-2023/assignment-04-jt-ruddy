@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const taskInput = document.getElementById('name-input');
   const taskList = document.getElementById('task-items');
   const taskCount = document.getElementById('task-count');
+  const clearAllButton = document.getElementById('clear-all');
   const clearCompletedButton = document.getElementById('clear-completed');
 
   form.addEventListener('submit', function (event) {
@@ -59,19 +60,63 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  //BUTTONS
   clearCompletedButton.addEventListener('click', function () {
     clearCompletedTasks();
     displayTasks();
   });
 
+  clearAllButton.addEventListener('click', function () {
+    clearAllTasks();
+    displayTasks();
+  });
+
+  function moveTaskUp(todoId) {
+    const todoIndex = todoItems.findIndex((todo) => todo.id === todoId);
+    if (todoIndex > 0) {
+      const temp = todoItems[todoIndex];
+      todoItems[todoIndex] = todoItems[todoIndex - 1];
+      todoItems[todoIndex - 1] = temp;
+      displayTasks();
+    }
+  }
+
+  function moveTaskDown(todoId) {
+    const todoIndex = todoItems.findIndex((todo) => todo.id === todoId);
+    if (todoIndex < todoItems.length - 1) {
+      const temp = todoItems[todoIndex];
+      todoItems[todoIndex] = todoItems[todoIndex + 1];
+      todoItems[todoIndex + 1] = temp;
+      displayTasks();
+    }
+  }
+
+  function createMoveButtons(todoId) {
+    const moveUpButton = document.createElement('button');
+    moveUpButton.textContent = 'Move Up';
+    moveUpButton.addEventListener('click', function () {
+      moveTaskUp(todoId);
+    });
+
+    const moveDownButton = document.createElement('button');
+    moveDownButton.textContent = 'Move Down';
+    moveDownButton.addEventListener('click', function () {
+      moveTaskDown(todoId);
+    });
+
+    return [moveUpButton, moveDownButton];
+  }
+
+
+
+
   function displayTasks() {
     taskList.innerHTML = '';
 
+    todoItems.sort((a, b) => (a.completed === b.completed ? 0 : a.completed ? 1 : -1));
+
     todoItems.forEach(function (todo) {
       const li = document.createElement('li');
-
-
-
       const span = document.createElement('span');
       span.textContent = todo.text;
 
@@ -96,6 +141,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
       deleteButton.appendChild(trashIcon);
 
+      const moveButtons = createMoveButtons(todo.id);
+      moveButtons.forEach((button) => li.appendChild(button));
+
 
       deleteButton.addEventListener('click', function () {
         deleteToDoItem(todo.id);
@@ -110,6 +158,10 @@ document.addEventListener('DOMContentLoaded', function () {
     updateTaskCount();
   }
 
+  function clearAllTasks() {
+    todoItems = [];
+  } 
+
   function toggleCompletion(todoId) {
     const todoIndex = todoItems.findIndex((todo) => todo.id === todoId);
     if (todoIndex !== -1) {
@@ -121,6 +173,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const incompleteTasks = todoItems.filter((todo) => !todo.completed).length;
     taskCount.textContent = `Tasks remaining: ${incompleteTasks}`;
   }
-
+  
   displayTasks();
 });
