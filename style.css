@@ -40,7 +40,8 @@ header{
   justify-content: center;
   align-items: center;
 
-  background-color: red;
+  color: #f1faee;
+  background-color: #375b8e;
   border-bottom: solid;
 }
 
@@ -52,6 +53,7 @@ footer{
 
 .complete-form{
   border: solid;
+  border-radius: 5px;
   margin-left: 2.5rem;
   margin-right: 2.5rem;
   padding: 1rem;
@@ -74,23 +76,59 @@ font-size: 0.9rem;
 }
 
 p{
-margin-bottom: 20px;
+margin-bottom: 50px;
+font-size: 1.2rem;
 }
 
 ul {
   list-style-type: none;
 }
 
+li{
+  margin-bottom: 10px;
+
+  display: grid;
+  grid-template-columns: auto 1.5fr auto auto auto;
+  align-items: center;
+  gap: 10px;
+}
+
 li span {
   margin-right: 50px;
+  text-align: left;
+  font-size: 1.5rem;
 }
+
 
 /*BUTTONS & BOXES*/
 input[type="checkbox"] {
-  transform: scale(1.5);
+  transform: scale(2.5);
   margin-right: 50px;
 }
 
+button {
+  margin-left: 5px;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 15px;
+
+
+  background-color: #375b8e;
+  color: white; 
+
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+button img {
+  max-width: 100%;
+  height: auto;
+  width: 25px;
+}
+
+button:hover {
+  background-color: #a8dadc;
+}
 
 
 

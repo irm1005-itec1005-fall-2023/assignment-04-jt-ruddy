@@ -26,6 +26,8 @@ function markToDoItemAsCompleted(todoId) {
   }
 }
 
+
+
 function markToDoItemAsIncomplete(todoId) {
   const todoIndex = todoItems.findIndex((todo) => todo.id === todoId);
   if (todoIndex !== -1) {
@@ -60,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  //BUTTONS
+  
   clearCompletedButton.addEventListener('click', function () {
     clearCompletedTasks();
     displayTasks();
@@ -138,8 +140,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const trashIcon = document.createElement('img');
       trashIcon.src = './images/favicon/deleteB2.ico';
       trashIcon.alt = 'Delete';
-
       deleteButton.appendChild(trashIcon);
+
 
       const moveButtons = createMoveButtons(todo.id);
       moveButtons.forEach((button) => li.appendChild(button));
