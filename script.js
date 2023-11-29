@@ -122,6 +122,10 @@ document.addEventListener('DOMContentLoaded', function () {
       const span = document.createElement('span');
       span.textContent = todo.text;
 
+      if (todo.completed) {
+        span.classList.add('completed-task');
+      }
+
       li.appendChild(span);
 
 

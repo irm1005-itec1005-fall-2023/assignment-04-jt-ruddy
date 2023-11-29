@@ -99,6 +99,10 @@ li span {
   font-size: 1.5rem;
 }
 
+li span.completed-task {
+  color: gray;
+}
+
 
 /*BUTTONS & BOXES*/
 input[type="checkbox"] {
