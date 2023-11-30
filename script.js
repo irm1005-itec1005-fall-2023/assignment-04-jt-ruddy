@@ -96,12 +96,14 @@ document.addEventListener('DOMContentLoaded', function () {
   function createMoveButtons(todoId) {
     const moveUpButton = document.createElement('button');
     moveUpButton.textContent = 'Move Up';
+    moveUpButton.classList.add('move-up');
     moveUpButton.addEventListener('click', function () {
       moveTaskUp(todoId);
     });
 
     const moveDownButton = document.createElement('button');
     moveDownButton.textContent = 'Move Down';
+    moveDownButton.classList.add('move-down');
     moveDownButton.addEventListener('click', function () {
       moveTaskDown(todoId);
     });
@@ -140,8 +142,10 @@ document.addEventListener('DOMContentLoaded', function () {
       li.appendChild(checkbox);
 
       const deleteButton = document.createElement('button');
+      deleteButton.classList.add('btn-delete');
 
       const trashIcon = document.createElement('img');
+      
       trashIcon.src = './images/favicon/deleteB2.ico';
       trashIcon.alt = 'Delete';
       deleteButton.appendChild(trashIcon);

@@ -22,7 +22,8 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--body-default-colour);
-  background-color: var(--body-background-colour);
+  background-image: url('./images/background3.jpg');
+  padding: 0;
 }
 
 main {
@@ -32,7 +33,6 @@ main {
   justify-content: center;
   align-items: center;
   text-align: center; 
-
 }
 
 header{
@@ -41,29 +41,37 @@ header{
   align-items: center;
 
   color: #f1faee;
-  background-color: #375b8e;
-  border-bottom: solid;
+  background-color: #14397d;
 }
 
 footer{
   display: flex;
   justify-content: end;
   align-items: center;
+
+  color: #f1faee;
+  background-color: #14397d;
 }
 
 .complete-form{
-  border: solid;
-  border-radius: 5px;
   margin-left: 2.5rem;
   margin-right: 2.5rem;
-  padding: 1rem;
+  padding: 0.5rem;
+
+  background-color: #d7eaf3;
+
+  border-radius: 5px;
+  border: solid;
 }
+
 
 
 /*TEXT ELEMENTS*/
 h1{
-  font-size: 2rem;
-margin: 2rem;
+font-size: 2rem;
+margin-top: 2rem;
+margin-bottom: 1rem;
+
 text-decoration: underline;
 }
 
@@ -76,77 +84,107 @@ font-size: 0.9rem;
 }
 
 p{
-margin-bottom: 50px;
+margin-bottom: 10px;
+margin-top: 20px;
+
 font-size: 1.2rem;
 }
 
 ul {
   list-style-type: none;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 li{
-  margin-bottom: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 20px;
 
   display: grid;
-  grid-template-columns: auto 1.5fr auto auto auto;
-  align-items: center;
+  grid-template-columns: repeat(10, 1fr);
+
   gap: 10px;
 }
 
 li span {
-  margin-right: 50px;
+  grid-column-start: 1;
+  grid-column-end: 2;
+
   text-align: left;
+  align-self: center;
+
   font-size: 1.5rem;
 }
 
 li span.completed-task {
   color: gray;
+  text-decoration: line-through;
 }
 
 
 /*BUTTONS & BOXES*/
 input[type="checkbox"] {
   transform: scale(2.5);
-  margin-right: 50px;
+  margin-right: 100px;
+
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+
+input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  font-size: 1.1rem;
 }
 
 button {
   margin-left: 5px;
+  
   border: none;
   border-radius: 5px;
   padding: 15px 15px;
 
-
-  background-color: #375b8e;
-  color: white; 
+  background-color: #77b5d9;
+  color: var(--body-default-colour); 
 
   cursor: pointer;
   transition: background-color 0.5s;
+}
+
+button:hover {
+  background-color: #14397d;
+  color: #f1faee;
+}
+
+.btn-primary{
+  margin-left: 20px;
+  padding: 10px 20px;
 }
 
 button img {
   max-width: 100%;
   height: auto;
   width: 25px;
+  min-width: 25px;
 }
 
-button:hover {
-  background-color: #a8dadc;
+button.move-up{
+  grid-column-start: 4;
+  grid-column-end: 7;
 }
 
+button.move-down{
+  grid-column-start: 7;
+  grid-column-end: 10;
+}
 
+button.btn-delete{
+margin-left: auto;
 
-
-
-
-
-
-
-
-
-
-
-
+grid-column-start: 10;
+grid-column-end: 11;
+}
 
 
 /****** Screen reader text utility clsas *******/
