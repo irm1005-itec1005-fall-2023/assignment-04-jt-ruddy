@@ -92,8 +92,9 @@ font-size: 1.2rem;
 
 ul {
   list-style-type: none;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  
 }
 
 li{
@@ -103,8 +104,8 @@ li{
 
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-
   gap: 10px;
+
 }
 
 li span {
