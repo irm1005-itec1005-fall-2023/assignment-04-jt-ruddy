@@ -1,12 +1,4 @@
-/*
- * CSS File for the solution
- * Assignment 03
- * You can modify these styles but you don't have to
- */
 
-/*
- VARIABLES
-*/
 :root {
   /* Core colours */
   /* https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557 */
@@ -30,7 +22,8 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--body-default-colour);
-  background-color: var(--body-background-colour);
+  background-image: url('./images/background3.jpg');
+  padding: 0;
 }
 
 main {
@@ -39,6 +32,159 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center; 
+}
+
+header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #f1faee;
+  background-color: #14397d;
+}
+
+footer{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+  color: #f1faee;
+  background-color: #14397d;
+}
+
+.complete-form{
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+  padding: 0.5rem;
+
+  background-color: #d7eaf3;
+
+  border-radius: 5px;
+  border: solid;
+}
+
+
+
+/*TEXT ELEMENTS*/
+h1{
+font-size: 2rem;
+margin-top: 2rem;
+margin-bottom: 1rem;
+
+text-decoration: underline;
+}
+
+h2{
+font-size: 5.5rem;
+}
+
+h3{
+font-size: 0.9rem;
+}
+
+p{
+margin-bottom: 10px;
+margin-top: 20px;
+
+font-size: 1.2rem;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 30px;
+  padding-right: 30px;
+  
+}
+
+li{
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
+
+}
+
+li span {
+  grid-column-start: 1;
+  grid-column-end: 2;
+
+  text-align: left;
+  align-self: center;
+
+  font-size: 1.5rem;
+}
+
+li span.completed-task {
+  color: gray;
+  text-decoration: line-through;
+}
+
+
+/*BUTTONS & BOXES*/
+input[type="checkbox"] {
+  transform: scale(2.5);
+  margin-right: 100px;
+
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+
+input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  font-size: 1.1rem;
+}
+
+button {
+  margin-left: 5px;
+  
+  border: none;
+  border-radius: 5px;
+  padding: 15px 15px;
+
+  background-color: #77b5d9;
+  color: var(--body-default-colour); 
+
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+button:hover {
+  background-color: #14397d;
+  color: #f1faee;
+}
+
+.btn-primary{
+  margin-left: 20px;
+  padding: 10px 20px;
+}
+
+button img {
+  max-width: 100%;
+  height: auto;
+  width: 25px;
+  min-width: 25px;
+}
+
+button.move-up{
+  grid-column-start: 4;
+  grid-column-end: 7;
+}
+
+button.move-down{
+  grid-column-start: 7;
+  grid-column-end: 10;
+}
+
+button.btn-delete{
+margin-left: auto;
+
+grid-column-start: 10;
+grid-column-end: 11;
 }
 
 
